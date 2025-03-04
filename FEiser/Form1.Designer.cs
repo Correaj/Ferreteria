@@ -41,7 +41,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Buscar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BuscarCod = new System.Windows.Forms.Button();
@@ -86,6 +86,8 @@
             this.pagoCon.Name = "pagoCon";
             this.pagoCon.Size = new System.Drawing.Size(126, 26);
             this.pagoCon.TabIndex = 82;
+            this.pagoCon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pagoCon_KeyDown);
+            this.pagoCon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pagoCon_KeyPress);
             // 
             // totalPagar
             // 
@@ -96,6 +98,7 @@
             this.totalPagar.ReadOnly = true;
             this.totalPagar.Size = new System.Drawing.Size(126, 26);
             this.totalPagar.TabIndex = 81;
+            this.totalPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalPagar_KeyPress);
             // 
             // label13
             // 
@@ -171,7 +174,7 @@
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.Buscar);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.BuscarCod);
@@ -192,16 +195,17 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(122, 66);
+            this.textBox2.Location = new System.Drawing.Point(289, 66);
             this.textBox2.Margin = new System.Windows.Forms.Padding(5);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(209, 26);
             this.textBox2.TabIndex = 56;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(117, 40);
+            this.label5.Location = new System.Drawing.Point(284, 40);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 20);
@@ -224,20 +228,22 @@
             this.button3.TabIndex = 54;
             this.button3.Text = "Agregar";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // Buscar
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(341, 66);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 26);
-            this.button2.TabIndex = 53;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.Buscar.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.Buscar.FlatAppearance.BorderSize = 0;
+            this.Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Buscar.Location = new System.Drawing.Point(122, 66);
+            this.Buscar.Margin = new System.Windows.Forms.Padding(5);
+            this.Buscar.Name = "Buscar";
+            this.Buscar.Size = new System.Drawing.Size(157, 26);
+            this.Buscar.TabIndex = 53;
+            this.Buscar.Text = "Buscar";
+            this.Buscar.UseVisualStyleBackColor = false;
+            this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
             // 
             // textBox1
             // 
@@ -246,6 +252,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(92, 26);
             this.textBox1.TabIndex = 52;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
@@ -261,7 +269,7 @@
             // 
             this.BuscarCod.FlatAppearance.BorderSize = 0;
             this.BuscarCod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BuscarCod.Location = new System.Drawing.Point(125, 63);
+            this.BuscarCod.Location = new System.Drawing.Point(292, 63);
             this.BuscarCod.Margin = new System.Windows.Forms.Padding(5);
             this.BuscarCod.Name = "BuscarCod";
             this.BuscarCod.Size = new System.Drawing.Size(42, 34);
@@ -393,6 +401,7 @@
             this.imprimir.TabIndex = 69;
             this.imprimir.Text = "Imprimir";
             this.imprimir.UseVisualStyleBackColor = false;
+            this.imprimir.Click += new System.EventHandler(this.imprimir_Click);
             // 
             // dataGridView1
             // 
@@ -416,6 +425,7 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.Size = new System.Drawing.Size(864, 236);
             this.dataGridView1.TabIndex = 1000;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // cantidad
             // 
@@ -509,7 +519,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Buscar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BuscarCod;
