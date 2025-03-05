@@ -30,10 +30,10 @@
         {
             this.Code = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.ADD = new System.Windows.Forms.Button();
+            this.Activar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.id = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,15 +41,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ADD = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.borrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -72,16 +67,17 @@
             this.label5.TabIndex = 20;
             this.label5.Text = "Codigo";
             // 
-            // ADD
+            // Activar
             // 
-            this.ADD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ADD.Location = new System.Drawing.Point(1036, 604);
-            this.ADD.Margin = new System.Windows.Forms.Padding(5);
-            this.ADD.Name = "ADD";
-            this.ADD.Size = new System.Drawing.Size(176, 33);
-            this.ADD.TabIndex = 19;
-            this.ADD.Text = "Activar";
-            this.ADD.UseVisualStyleBackColor = true;
+            this.Activar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Activar.Location = new System.Drawing.Point(1036, 604);
+            this.Activar.Margin = new System.Windows.Forms.Padding(5);
+            this.Activar.Name = "Activar";
+            this.Activar.Size = new System.Drawing.Size(176, 33);
+            this.Activar.TabIndex = 19;
+            this.Activar.Text = "Activar";
+            this.Activar.UseVisualStyleBackColor = true;
+            this.Activar.Click += new System.EventHandler(this.Activar_Click);
             // 
             // label3
             // 
@@ -101,13 +97,14 @@
             this.numericUpDown1.Size = new System.Drawing.Size(173, 26);
             this.numericUpDown1.TabIndex = 17;
             // 
-            // textBox4
+            // id
             // 
-            this.textBox4.Location = new System.Drawing.Point(334, 81);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(175, 26);
-            this.textBox4.TabIndex = 16;
+            this.id.Location = new System.Drawing.Point(334, 81);
+            this.id.Margin = new System.Windows.Forms.Padding(5);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(175, 26);
+            this.id.TabIndex = 16;
+            this.id.Visible = false;
             // 
             // label4
             // 
@@ -115,9 +112,10 @@
             this.label4.Location = new System.Drawing.Point(330, 56);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
+            this.label4.Size = new System.Drawing.Size(28, 20);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Categoria";
+            this.label4.Text = "ID";
+            this.label4.Visible = false;
             // 
             // textBox2
             // 
@@ -173,91 +171,54 @@
             this.label6.TabIndex = 23;
             this.label6.Text = "Codigo barra";
             // 
-            // button1
+            // ADD
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(836, 56);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 107);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ADD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ADD.Location = new System.Drawing.Point(836, 56);
+            this.ADD.Margin = new System.Windows.Forms.Padding(5);
+            this.ADD.Name = "ADD";
+            this.ADD.Size = new System.Drawing.Size(176, 107);
+            this.ADD.TabIndex = 25;
+            this.ADD.Text = "Agregar";
+            this.ADD.UseVisualStyleBackColor = true;
+            this.ADD.Visible = false;
+            this.ADD.Click += new System.EventHandler(this.ADD_Click);
             // 
-            // button2
+            // update
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(1036, 57);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 50);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Actualizar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.update.Location = new System.Drawing.Point(1036, 57);
+            this.update.Margin = new System.Windows.Forms.Padding(5);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(176, 50);
+            this.update.TabIndex = 26;
+            this.update.Text = "Actualizar";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Visible = false;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
-            // button3
+            // delete
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1036, 116);
-            this.button3.Margin = new System.Windows.Forms.Padding(5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(176, 47);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.delete.Location = new System.Drawing.Point(1036, 116);
+            this.delete.Margin = new System.Windows.Forms.Padding(5);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(176, 47);
+            this.delete.TabIndex = 27;
+            this.delete.Text = "Eliminar";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Visible = false;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // dataGridView2
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeight = 50;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cantidad,
-            this.name,
-            this.precioU,
-            this.valor,
-            this.borrar});
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(56, 191);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(1156, 403);
-            this.dataGridView2.TabIndex = 1001;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cant";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Descripcion";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // precioU
-            // 
-            this.precioU.HeaderText = "Precio/Unit";
-            this.precioU.Name = "precioU";
-            this.precioU.ReadOnly = true;
-            // 
-            // valor
-            // 
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            // 
-            // borrar
-            // 
-            this.borrar.HeaderText = "";
-            this.borrar.Name = "borrar";
-            this.borrar.ReadOnly = true;
+            this.dataGridView2.TabIndex = 28;
             // 
             // AddProductos
             // 
@@ -266,17 +227,17 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1255, 651);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.delete);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.ADD);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Code);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.ADD);
+            this.Controls.Add(this.Activar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.id);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -299,10 +260,10 @@
 
         private System.Windows.Forms.TextBox Code;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button ADD;
+        private System.Windows.Forms.Button Activar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
@@ -310,14 +271,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ADD;
+        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button delete;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn borrar;
     }
 }
